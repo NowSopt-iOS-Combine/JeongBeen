@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
             .assign(to: \.emailInput, on: viewModel)
             .store(in: &subsscriptions)
         
-        viewModel.$isMatched
+        viewModel.emailValidationPublisher
             .receive(on: RunLoop.main)
             .sink { isMatched in
                 print(isMatched ? "유효한 이메일 형식입니다." : "유효하지 않은 이메일 형식입니다.")

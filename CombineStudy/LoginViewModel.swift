@@ -12,18 +12,19 @@ import CombineCocoa
 final class LoginViewModel {
     
     var emailInput: String?
-    @Published var isMatched: Bool = false
+    
+    let emailValidationPublisher = PassthroughSubject<Bool, Never>()
     
     func validityCheck() {
         
         guard let email = emailInput,
               isValidEmail(emailID: email)
         else {
-            isMatched = false
+            emailValidationPublisher.send(false)
             return
         }
         
-        isMatched = true
+        emailValidationPublisher.send(true)
     }
     
     private func isValidEmail(emailID: String) -> Bool {
