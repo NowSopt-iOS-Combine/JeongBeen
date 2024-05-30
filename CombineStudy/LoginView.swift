@@ -27,6 +27,7 @@ class LoginView: UIView {
     private let forResizeView = UIView()
     private let findStackView = UIStackView()
     private let createAccountStackView = UIStackView()
+    let combineLabel = UILabel()
     
     // MARK: - initialize
     override init(frame: CGRect) {
@@ -52,7 +53,7 @@ class LoginView: UIView {
         [createAccountSubsLabel, createNickNameButton]
             .forEach { createAccountStackView.addArrangedSubview($0) }
         
-        [titleLabel, idTextField, passwordField, clearTextButtonForID, clearTextButtonForPW, passwordEyeButton, loginButton, warningMessage, findStackView, createAccountStackView]
+        [titleLabel, idTextField, passwordField, clearTextButtonForID, clearTextButtonForPW, passwordEyeButton, loginButton, warningMessage, findStackView, createAccountStackView, combineLabel]
             .forEach { addSubview($0) }
         
         titleLabel.do {
@@ -154,6 +155,12 @@ class LoginView: UIView {
         forResizeView.do { $0.backgroundColor = .none }
         
         borderLine.do { $0.backgroundColor = .darkGray }
+        
+        combineLabel.do {
+            $0.text = "dsafsdfasd"
+            $0.textColor = .white
+            $0.font = .boldSystemFont(ofSize: 20)
+        }
     }
     
     // MARK: - set components layout
@@ -215,6 +222,11 @@ class LoginView: UIView {
         createAccountStackView.snp.makeConstraints {
             $0.top.equalTo(findStackView.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(45)
+        }
+        
+        combineLabel.snp.makeConstraints {
+            $0.top.equalTo(createAccountStackView.snp.bottom).offset(50)
+            $0.centerX.equalToSuperview()
         }
     }
 }
