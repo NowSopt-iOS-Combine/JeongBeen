@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         setDelegate()
         setAdditionalTextFieldSetting()
         setLoginButton()
+        createNickName()
         
         loginView.idTextField.textPublisher
             .receive(on: RunLoop.main)
@@ -65,6 +66,32 @@ class LoginViewController: UIViewController {
         button.isEnabled = isEnabled
         button.backgroundColor = backgroundColor
         button.setTitleColor(titleColor, for: .normal)
+    }
+    
+    // MARK: - set createNickName
+    private func createNickName() {
+        loginView.createNickNameButton.addTarget(self, action: #selector(showModalView), for: .touchUpInside)
+    }
+    
+    @objc private func showModalView() {
+        let createNickNameVC = CreateNickNameViewController()
+        
+        if let sheet = createNickNameVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+        }
+        
+        createNickNameVC.dataBind = { [weak self] nickName in
+            guard let self = self else { return }
+            self.nickName = nickName
+        }
+        
+        self.present(createNickNameVC, animated: true)
+    }
+    
+    private func toMakeNickNameAlert() {
+        let alert = UIAlertController(title: nil, message: "닉네임을 생성하세요", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true)
     }
     
     // MARK: - additional setting
