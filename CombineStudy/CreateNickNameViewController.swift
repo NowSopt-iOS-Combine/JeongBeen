@@ -7,14 +7,26 @@
 
 import UIKit
 
+
 class CreateNickNameViewController: UIViewController {
     
     // MARK: - properties
     private let createNickNameView = CreateNickNameView()
+    private let viewModel: CreateNickNameViewModel?
     
     var dataBind: ((String) -> Void)?
     
     // MARK: - initialize
+    
+    init(viewModel: CreateNickNameViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +53,8 @@ class CreateNickNameViewController: UIViewController {
     
     @objc private func tappedSaveButton() {
         let nickName = createNickNameView.nickNameTextField.text!
-        dataBind?(nickName)
+//        dataBind?(nickName)
+        viewModel?.setNickName(nickName)
         dismiss(animated: true)
     }
     

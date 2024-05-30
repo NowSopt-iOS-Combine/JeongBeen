@@ -22,6 +22,7 @@
 		213B877A2BECD4520071BD65 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 213B87792BECD4520071BD65 /* CombineCocoa */; };
 		219964272C08ECCA00EDD523 /* CreateNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219964252C08ECCA00EDD523 /* CreateNickNameView.swift */; };
 		219964282C08ECCA00EDD523 /* CreateNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219964262C08ECCA00EDD523 /* CreateNickNameViewController.swift */; };
+		2199642A2C08EDFC00EDD523 /* CreateNickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219964292C08EDFC00EDD523 /* CreateNickNameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		213B876E2BECD2060071BD65 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		219964252C08ECCA00EDD523 /* CreateNickNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNickNameView.swift; sourceTree = "<group>"; };
 		219964262C08ECCA00EDD523 /* CreateNickNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNickNameViewController.swift; sourceTree = "<group>"; };
+		219964292C08EDFC00EDD523 /* CreateNickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNickNameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				213B876D2BECD2060071BD65 /* LoginViewModel.swift */,
 				219964252C08ECCA00EDD523 /* CreateNickNameView.swift */,
 				219964262C08ECCA00EDD523 /* CreateNickNameViewController.swift */,
+				219964292C08EDFC00EDD523 /* CreateNickNameViewModel.swift */,
 				213B87612BECD1F60071BD65 /* Extensions */,
 				213B87562BECD1900071BD65 /* Assets.xcassets */,
 				213B87582BECD1900071BD65 /* LaunchScreen.storyboard */,
@@ -187,6 +190,7 @@
 				213B87672BECD1F60071BD65 /* UIButton+Extension.swift in Sources */,
 				219964272C08ECCA00EDD523 /* CreateNickNameView.swift in Sources */,
 				213B87712BECD2060071BD65 /* LoginViewController.swift in Sources */,
+				2199642A2C08EDFC00EDD523 /* CreateNickNameViewModel.swift in Sources */,
 				213B876B2BECD1F60071BD65 /* AppDelegate.swift in Sources */,
 				213B876A2BECD1F60071BD65 /* SceneDelegate.swift in Sources */,
 				213B87702BECD2060071BD65 /* LoginViewModel.swift in Sources */,

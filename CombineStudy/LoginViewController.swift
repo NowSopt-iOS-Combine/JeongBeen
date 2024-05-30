@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     let viewModel = LoginViewModel()
     private var subsscriptions = Set<AnyCancellable>()
+    let nickNameViewModel = CreateNickNameViewModel()
     
     var nickName: String?
     
@@ -34,6 +35,14 @@ class LoginViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { isMatched in
                 print(isMatched ? "유효한 이메일 형식입니다." : "유효하지 않은 이메일 형식입니다.")
+            }
+            .store(in: &subsscriptions)
+        
+        nickNameViewModel.nickNameSubject
+            .receive(on: RunLoop.main)
+            .sink { [weak self] nickName in
+                guard let self else { return }
+                self.loginView.combineLabel.text = nickName
             }
             .store(in: &subsscriptions)
     }
@@ -74,7 +83,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func showModalView() {
-        let createNickNameVC = CreateNickNameViewController()
+        let createNickNameVC = CreateNickNameViewController(viewModel: nickNameViewModel)
         
         if let sheet = createNickNameVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
